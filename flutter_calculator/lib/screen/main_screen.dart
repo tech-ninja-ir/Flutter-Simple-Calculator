@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../controller/calculate_controller.dart';
+
 ///
 import '../controller/theme_controller.dart';
-import '../controller/calculate_controller.dart';
 import '../utils/colors.dart';
 import '../widget/button.dart';
 
@@ -46,9 +47,11 @@ class MainScreen extends StatelessWidget {
 
     return GetBuilder<ThemeController>(builder: (context) {
       return Scaffold(
-        backgroundColor: themeController.isDark
-            ? DarkColors.scaffoldBgColor
-            : LightColors.scaffoldBgColor,
+        //todo: for change them
+        // backgroundColor: themeController.isDark
+        //     ? DarkColors.scaffoldBgColor
+        //     : LightColors.scaffoldBgColor,
+        backgroundColor: DarkColors.scaffoldBgColor,
         body: Column(
           children: [
             GetBuilder<CalculateController>(builder: (context) {
@@ -68,11 +71,9 @@ class MainScreen extends StatelessWidget {
         flex: 2,
         child: Container(
           padding: const EdgeInsets.all(3),
-          decoration: BoxDecoration(
-              color: themeController.isDark
-                  ? DarkColors.sheetBgColor
-                  : LightColors.sheetBgColor,
-              borderRadius: const BorderRadius.only(
+          decoration: const BoxDecoration(
+              color: DarkColors.sheetBgColor,
+              borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30))),
           child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
@@ -150,46 +151,48 @@ class MainScreen extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          alignment: Alignment.topCenter,
-          width: 100,
-          height: 45,
-          decoration: BoxDecoration(
-              color: themeController.isDark
-                  ? DarkColors.sheetBgColor
-                  : LightColors.sheetBgColor,
-              borderRadius: BorderRadius.circular(20)),
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    themeController.lightTheme();
-                  },
-                  child: Icon(
-                    Icons.light_mode_outlined,
-                    color: themeController.isDark ? Colors.grey : Colors.black,
-                    size: 25,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    themeController.darkTheme();
-                  },
-                  child: Icon(
-                    Icons.dark_mode_outlined,
-                    color: themeController.isDark ? Colors.white : Colors.grey,
-                    size: 25,
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
+        // todo: for change them
+        // Container(
+        //   alignment: Alignment.topCenter,
+        //   width: 100,
+        //   height: 45,
+        //   decoration: BoxDecoration(
+        //       color: themeController.isDark
+        //           ? DarkColors.sheetBgColor
+        //           : LightColors.sheetBgColor,
+        //       borderRadius: BorderRadius.circular(20)),
+        //   child: Center(
+        //     child: Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         GestureDetector(
+        //           onTap: () {
+        //             themeController.lightTheme();
+        //           },
+        //           child: Icon(
+        //             Icons.light_mode_outlined,
+        //             color: themeController.isDark ? Colors.grey : Colors.black,
+        //             size: 25,
+        //           ),
+        //         ),
+        //         const SizedBox(
+        //           width: 10,
+        //         ),
+        //         GestureDetector(
+        //           onTap: () {
+        //             themeController.darkTheme();
+        //           },
+        //           child: Icon(
+        //             Icons.dark_mode_outlined,
+        //             color: themeController.isDark ? Colors.white : Colors.grey,
+        //             size: 25,
+        //           ),
+        //         )
+        //       ],
+        //     ),
+        //   ),
+        // ),
+
         Padding(
           padding: const EdgeInsets.only(right: 20, top: 70),
           child: Column(
