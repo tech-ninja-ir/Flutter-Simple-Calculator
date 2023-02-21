@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../controller/calculate_controller.dart';
-
 ///
 import '../controller/theme_controller.dart';
 import '../utils/colors.dart';
@@ -52,6 +52,25 @@ class MainScreen extends StatelessWidget {
         //     ? DarkColors.scaffoldBgColor
         //     : LightColors.scaffoldBgColor,
         backgroundColor: DarkColors.scaffoldBgColor,
+        appBar: AppBar(
+          backgroundColor: DarkColors.primaryColor,
+          elevation: 0,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              SvgPicture.asset(
+                "assets/img/topolo-logo-light.svg",
+                semanticsLabel: 'Acme Logo',
+                width: 80,
+              ),
+              SvgPicture.asset(
+                "assets/img/topolo-icon-single-light.svg",
+                semanticsLabel: 'Acme Logo',
+                width: 60,
+              ),
+            ],
+          ),
+        ),
         body: Column(
           children: [
             GetBuilder<CalculateController>(builder: (context) {
@@ -68,9 +87,9 @@ class MainScreen extends StatelessWidget {
   Expanded inPutSection(
       ThemeController themeController, CalculateController controller) {
     return Expanded(
-        flex: 2,
+        flex: 3,
         child: Container(
-          padding: const EdgeInsets.all(3),
+          padding: const EdgeInsets.only(top: 8),
           decoration: const BoxDecoration(
               color: DarkColors.sheetBgColor,
               borderRadius: BorderRadius.only(
@@ -194,7 +213,7 @@ class MainScreen extends StatelessWidget {
         // ),
 
         Padding(
-          padding: const EdgeInsets.only(right: 20, top: 70),
+          padding: const EdgeInsets.only(right: 20, top: 40),
           child: Column(
             children: [
               Container(
